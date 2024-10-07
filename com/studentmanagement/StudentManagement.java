@@ -81,6 +81,7 @@ public class StudentManagement {
 
                 // Create a new Student object and add it to the list
                 studentList.add(new Student(name, address, gpa));
+                System.err.println();
             }
 
             // Sort the studentList ascending by name (case-insensitive)
