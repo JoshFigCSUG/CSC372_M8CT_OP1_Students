@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -59,6 +60,10 @@ public class StudentManagement {
 
                 studentList.add(new Student(name, address, gpa));
             }
+
+            // Sort the list in ascending by name
+            Collections.sort(studentList, (s1, s2) -> s1.getName().compareToIgnoreCase(s2.getName()));
+
         }
     }
 }
