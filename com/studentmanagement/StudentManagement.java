@@ -26,8 +26,6 @@ public class StudentManagement {
         try (Scanner input = new Scanner(System.in)) {
             // Use a LinkedList to store student data
             LinkedList<Student> studentList = new LinkedList<>();
-
-
             
             // Main loop to continuously get student data
             while (true) {
