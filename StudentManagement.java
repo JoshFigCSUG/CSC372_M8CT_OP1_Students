@@ -20,6 +20,18 @@ public class StudentManagement {
                     System.out.print("Name: ");
                     name = input.nextLine();
                 }
+
+                // --- Address Input ---
+                System.out.print("Address: ");
+                String address = input.nextLine();
+                if (address.equalsIgnoreCase("done")) {
+                    break;
+                }
+                while (address.trim().isEmpty()) {
+                    System.out.println("Address cannot be empty. Please enter an address.");
+                    System.out.print("Address: ");
+                    address = input.nextLine();
+                }
             }
         }
     }
