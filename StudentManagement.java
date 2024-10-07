@@ -1,3 +1,6 @@
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -64,6 +67,20 @@ public class StudentManagement {
             // Sort the list in ascending by name
             Collections.sort(studentList, (s1, s2) -> s1.getName().compareToIgnoreCase(s2.getName()));
 
+            // Write to file with exception handling
+            String fileName = "student_data.txt";
+            try (FileWriter writer = new FileWriter(fileName)) {
+                for (Student student : studentList) {
+                    writer.write(student.toString() + "\n");
+                }
+                System.out.println("Student data written to " + fileName);
+            } catch (FileNotFoundException e) {
+                System.err.println("Error: File not found: " + e.getMessage());
+            } catch (SecurityException e) {
+                System.err.println("Error: Permission denied to write to file: " + e.getMessage());
+            } catch (IOException e) {
+                System.err.println("Error writing to file: " + e.getMessage());
+            }
         }
     }
 }
