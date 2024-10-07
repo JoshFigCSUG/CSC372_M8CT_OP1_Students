@@ -8,8 +8,10 @@ import java.util.Scanner;
 public class StudentManagement {
     public static void main(String[] args) {
         try (Scanner input = new Scanner(System.in)) {
+            // Use a LinkedList to store student data
             LinkedList<Student> studentList = new LinkedList<>();
-
+            
+            // Main loop to continuously get student data
             while (true) {
                 System.out.println("Enter student data (or type 'done' to finish):");
 
@@ -17,8 +19,9 @@ public class StudentManagement {
                 System.out.print("Name: ");
                 String name = input.nextLine();
                 if (name.equalsIgnoreCase("done")) {
-                    break; 
+                    break; // Exit loop if user enters "done"
                 }
+                // Validate name input to ensure it's not empty
                 while (name.trim().isEmpty()) {
                     System.out.println("Name cannot be empty. Please enter a name.");
                     System.out.print("Name: ");
@@ -29,8 +32,9 @@ public class StudentManagement {
                 System.out.print("Address: ");
                 String address = input.nextLine();
                 if (address.equalsIgnoreCase("done")) {
-                    break;
+                    break;// Exit loop if user enters "done"
                 }
+                // Validate address input to ensure it's not empty
                 while (address.trim().isEmpty()) {
                     System.out.println("Address cannot be empty. Please enter an address.");
                     System.out.print("Address: ");
@@ -40,16 +44,18 @@ public class StudentManagement {
                 // --- GPA Input ---
                 double gpa = 0;
                 String gpaInput;
+                // Loop to get valid GPA input
                 while (true) {
                     System.out.print("GPA: ");
                     gpaInput = input.nextLine(); 
                     if (gpaInput.equalsIgnoreCase("done")) {
-                        break; 
+                        break; // Exit loop if user enters "done"
                     }
                     try {
                         gpa = Double.parseDouble(gpaInput);
+                        // Validate GPA to be within the range 0-4.0
                         if (gpa >= 0 && gpa <= 4.0) {
-                            break; // Valid GPA
+                            break; // Valid GPA, exit loop
                         } else {
                             System.out.println("Invalid GPA. Please enter a value between 0 and 4.0.");
                         }
@@ -58,16 +64,17 @@ public class StudentManagement {
                     }
                 }
                 if (gpaInput.equalsIgnoreCase("done")) { 
-                    break; 
+                    break; // Exit loop if user enters "done"
                 }
 
+                // Create a new Student object and add it to the list
                 studentList.add(new Student(name, address, gpa));
             }
 
-            // Sort the list in ascending by name
+            // Sort the studentList ascending by name (case-insensitive)
             Collections.sort(studentList, (s1, s2) -> s1.getName().compareToIgnoreCase(s2.getName()));
 
-            // Write to file with exception handling
+            // Write student data to file with exception handling
             String fileName = "student_data.txt";
             try (FileWriter writer = new FileWriter(fileName)) {
                 for (Student student : studentList) {
