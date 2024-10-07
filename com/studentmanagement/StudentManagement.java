@@ -9,9 +9,25 @@ import java.util.Scanner;
 
 public class StudentManagement {
     public static void main(String[] args) {
+        // Program Introduction
+        System.out.println("Welcome to the Student Management Program!"); 
+        System.out.println("-----------------------------------------");
+        System.out.println("This program allows you to input student data,");
+        System.out.println("validate it, and save it to a file.");
+        System.out.println("\nFollow these prompts:");
+        System.out.println("The program will ask you to enter the name, address, and GPA of each student.");
+        System.out.println("Enter \"done\" (case-insensitive) for any of the fields to finish entering data.");
+        System.out.println("The program will validate your input for GPA (must be between 0 and 4.0) and ensure that the name and address fields are not empty.");
+        System.out.println("Output:");
+        System.out.println("The program will create a file named \"student_data.txt\" in the same directory where you run the program.");
+        System.out.println("This file will contain the sorted list of students with their name, address, and GPA.");
+        System.out.println();
+
         try (Scanner input = new Scanner(System.in)) {
             // Use a LinkedList to store student data
             LinkedList<Student> studentList = new LinkedList<>();
+
+
             
             // Main loop to continuously get student data
             while (true) {
