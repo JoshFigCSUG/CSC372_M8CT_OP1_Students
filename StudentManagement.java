@@ -32,6 +32,32 @@ public class StudentManagement {
                     System.out.print("Address: ");
                     address = input.nextLine();
                 }
+
+                // --- GPA Input ---
+                double gpa = 0;
+                String gpaInput;
+                while (true) {
+                    System.out.print("GPA: ");
+                    gpaInput = input.nextLine(); 
+                    if (gpaInput.equalsIgnoreCase("done")) {
+                        break; 
+                    }
+                    try {
+                        gpa = Double.parseDouble(gpaInput);
+                        if (gpa >= 0 && gpa <= 4.0) {
+                            break; // Valid GPA
+                        } else {
+                            System.out.println("Invalid GPA. Please enter a value between 0 and 4.0.");
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid input. Please enter a numeric value for GPA.");
+                    }
+                }
+                if (gpaInput.equalsIgnoreCase("done")) { 
+                    break; 
+                }
+
+                studentList.add(new Student(name, address, gpa));
             }
         }
     }
