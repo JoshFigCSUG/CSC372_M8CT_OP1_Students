@@ -1,5 +1,4 @@
 Student [Name: Adam, Address: 1600 California St, GPA: 2.2]
 Student [Name: Brent, Address: 2500 E Colfax Ave, GPA: 2.9]
 Student [Name: Janine, Address: 1480 16th St, GPA: 4.0]
-Student [Name: Marcus, Address: 140 Steele St, GPA: 3.3]
 Student [Name: Xavier, Address: 1644 E Evans Ave, GPA: 3.9]
